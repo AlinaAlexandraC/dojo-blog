@@ -1,30 +1,21 @@
 import Navbar from './Navbar';
 import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
-  // const title = "Welcome to the new blog";
-  // const likes = 50;
-  // const link = "http://www.google.com";
-
-  // objects and booleans are not valid as React childs
-
   return (
-    <div className="App">
-      <Navbar />
-      <div className="content">
-        <Home />
-
-        {/* <h1>{ title }</h1>
-        <p>Liked { likes } times</p>
-
-        <p>{ 10 }</p>
-        <p>{ "Hello ninjas" }</p>
-        <p>{ [1, 2, 3, 4, 5] }</p>
-        <p>{ Math.random() * 10 }</p>
-
-        <a href={link}>Google Site</a> */}
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
